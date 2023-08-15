@@ -17,16 +17,15 @@ class PasswordGenerator
 
     return 'No password preferences selected.' if characters.empty?
 
-
     password = String.new
     j = 0
-    for i in 1..pass_length
+    (1..pass_length).each {
       password << characters[j].sample
       j += 1
       if j == characters.length
         j = 0
       end
-    end
+    }
     password.split('').shuffle.join
   end
 end
